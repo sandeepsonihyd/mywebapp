@@ -1,0 +1,20 @@
+name: EnvironmentExample
+on: workflow_dispatch
+jobs:
+  Dev-Deployment-Job:
+    name: DevDeployment
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - shell: bash
+        run: |
+          echo ${{ vars.CONNECTIONSTRING }}
+
+  Prod-Deployment-Job:
+    name: ProdDeployment
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - shell: bash
+        run: |
+          echo ${{ vars.CONNECTIONSTRING }}
